@@ -1,0 +1,20 @@
+{
+  "name": "cmsc335_final",
+  "version": "1.0.0",
+  "description": "Submitted by: Aryaman Punshi (directory id: apunshi) Group Members: Aryaman Punshi (apunshi) App Description:  YouTube Video Link:  APIs:  Contact Email: apunshi@terpmail.umd.edu Deployed App Link:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0",
+    "node-fetch": "^2.7.0"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <h1>Recipe Finder</h1>
+
+  <form action="/recipes" method="POST">
+    <label for="ingredients">Enter ingredients (seperated by commas):</label>
+    <br>
+    <input type="text" name="ingredients" id="ingredients" required>
+    <button type="submit">Search</button>
+  </form>
+
+  <% if (recipes && recipes.length > 0) { %>
+    <h2>Results</h2>
+    <div class="recipe-container">
+      <% recipes.forEach(recipe => { %>
+        <div class="recipe-card">
+          <h3><%= recipe.label %></h3>
+          <img src="<%= recipe.image %>" alt="<%= recipe.label %>" width="200">
+          <p>Calories: <%= recipe.calories.toFixed(0) %></p>
+          <p><a href="<%= recipe.url %>" target="_blank">View Full Recipe</a></p>
+
+          <form action="/save" method="POST">
+            <input type="hidden" name="label" value="<%= recipe.label %>">
+            <input type="hidden" name="image" value="<%= recipe.image %>">
+            <input type="hidden" name="url" value="<%= recipe.url %>">
+            <input type="hidden" name="calories" value="<%= recipe.calories %>">
+            <input type="hidden" name="ingredients" value='<%= JSON.stringify(recipe.ingredientLines) %>'>
+            <button type="submit">Save Recipe</button>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+  <% } else if (recipes) { %>
+    <p>No results found.</p>
+  <% } %>
+
+  <p><a href="/">Back to Home</a></p>
+</body>
+
+</html>
