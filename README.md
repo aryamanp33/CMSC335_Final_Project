@@ -4,4 +4,4 @@ App Description: The app is a recipe finder based on a user's inputted ingredien
 YouTube Video Link: 
 APIs: Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)
 Contact Email: apunshi@terpmail.umd.edu
-Deployed App Link: 
+Deployed App Link: [text](https://recipe-finder-hovq.onrender.com)

@@ -29,11 +29,13 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/recipes', (req, res) => {
+const recipeRouter = express.Router();
+
+recipeRouter.get('/', (req, res) => {
   res.render('recipes', { recipes: null });
 });
 
-app.post('/recipes', async (req, res) => {
+recipeRouter.post('/', async (req, res) => {
   const query = req.body.ingredients;
   const appId = process.env.EDAMAM_APP_ID;
   const appKey = process.env.EDAMAM_APP_KEY;
@@ -52,6 +54,8 @@ app.post('/recipes', async (req, res) => {
     res.render('recipes', { recipes: [] });
   }
 });
+
+app.use('/recipes', recipeRouter);
 
 app.post('/save', async (req, res) => {
   const { label, image, url, ingredients, calories } = req.body;
